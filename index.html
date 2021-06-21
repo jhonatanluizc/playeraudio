@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodePen - Podcast Player</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="podcast">
+            <h3 class="podcast__episode_title">Debugging Tools + Tips</h3>
+            <h5 class="podcast__title"><br /></h5>
+            <div class="podcast__meta">
+                <a class="artwork">
+                    <img id="image-source" src="" alt="">
+                </a>
+                <audio controls width="100%">
+                    <source id="audio-source" src="">
+                    Your browser does not support the audio tag.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+    <!-- partial -->
+    <script src="js/jquery.js"></script>
+    <script>
+
+        /// :: Base.
+        var urlParams = new URLSearchParams(location.search);
+        var title = urlParams.get('title');
+        var source = urlParams.get('source');
+        var image = 'img/wave.png';
+
+        /// :: Edit texts.
+        $('.podcast__episode_title').text(title === null ? 'none' : title);
+        $("#audio-source").attr("src", source === null ? 'https://juntosplatform.blob.core.windows.net/dalistmidia/b07b4c7249c4afef66b8ca701e363d5842d1b3974943a2f131375efd48f6d12.mp3' : source);
+        $("#image-source").attr("src", image === null ? 'img/wave.png' : image);
+
+    </script>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
